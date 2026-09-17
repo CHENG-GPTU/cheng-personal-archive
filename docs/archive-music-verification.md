@@ -43,6 +43,16 @@ Windows 默认使用已安装的 Chrome；可设 `ARCHIVE_TEST_BROWSER=msedge`�
 - 生产构建与 TypeScript 检查通过。
 - 20 项专项测试通过；20 项生产 Chrome 浏览器测试通过；31 项相关渲染、工牌、光效、开信与联系控件回归通过。
 - 生产 Chrome 普通网络实测：预读 1,048,576 / 8,698,902 字节，206 范围响应；开信前未播放，省流/2g 场景开信前不请求音频。
-- 浏览器测试日志：`artifacts/archive-browser-final.log`。
+- 本地浏览器测试日志：`artifacts/archive-browser-final.log`（不包含在公开仓库）。
 - 已检查桌面及 375px 手机截图，并自动覆盖 320px。真机 Safari/iOS 尚未验证。
 - 新增音乐、导航、公开页面音乐控件与测试文件的 ESLint 检查通过。仓库原有 `archive-entry.tsx` 的 effect 内同步 setState 规则报错未在本次范围内重构。
+
+## 正式网站验证（2026-09-17）
+
+- 地址：https://aipm-sprint-camp.vercel.app 。源码版本 `267356b`。
+- Vercel 生产构建、TypeScript、20 项专项测试及修改文件的 ESLint 检查通过。
+- 在正式网址执行全部 20 项 Chrome 浏览器测试，全部通过；桌面首页截图已检查。
+- 本次线上元数据预读实测为 217,435 / 8,698,902 字节，206 范围响应。此数值仅为本次运行观测，不是固定下载量。
+- 远程首屏可能先显示服务端渲染的控件，再完成交互初始化；测试等待音乐控制器初始化完成后再点击，避免把尚未可交互的首屏误判为播放失败。
+- 未登录访问：首页、About、作品、简历为 200；学习区跳转到登录页；学习数据接口为 401；本地密钥和学习记录路径为 404。
+- 如验证环境需要代理，可设置 `ARCHIVE_TEST_PROXY`；Node 请求可使用 `HTTPS_PROXY` 和 `NODE_USE_ENV_PROXY=1`。代理仅用于测试，不影响访客。
