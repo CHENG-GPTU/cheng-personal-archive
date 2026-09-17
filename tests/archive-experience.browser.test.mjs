@@ -90,7 +90,8 @@ async function connection(page, { saveData = false, effectiveType = '4g' } = {})
 async function visit(page, pathname = '/') {
   await page.goto(`${baseUrl}${pathname}`, { waitUntil: 'domcontentloaded' });
   await page.locator(music).first().waitFor({ state: 'attached' });
-  // Wait for hydration through the player's rendered UI, not an arbitrary page sleep.
+  // SSR controls can be visible before their click handlers are attached on a remote host.
+  await page.locator('audio[data-music-ready="true"]').waitFor({ state: 'attached' });
   await page.locator(toggle).first().waitFor();
 }
 

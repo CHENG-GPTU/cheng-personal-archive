@@ -2,6 +2,8 @@
 
 一个基于 Next.js 16 的个人作品集站点。公开区域展示项目与能力证据，`/learn` 是仅站点所有者可进入的 30 关 AIPM 学习系统。
 
+[访问网站](https://aipm-sprint-camp.vercel.app) · [GitHub 源码](https://github.com/CHENG-GPTU/cheng-personal-archive)
+
 ## 本地启动
 
 ```bash

@@ -25,7 +25,8 @@ const ArchiveMusic = forwardRef<ArchiveMusicHandle, { children: ReactNode }>(fun
       onStatusChange: setStatus,
     });
     controllerRef.current = controller;
-    return () => { controller.dispose(); controllerRef.current = null; };
+    audio.dataset.musicReady = 'true';
+    return () => { delete audio.dataset.musicReady; controller.dispose(); controllerRef.current = null; };
   }, []);
 
   useImperativeHandle(ref, () => ({
