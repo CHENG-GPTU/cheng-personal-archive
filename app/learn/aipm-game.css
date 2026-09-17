@@ -1,0 +1,425 @@
+.aipm-game-shell{--ink:#111210;--paper:#eeefe9;--glass:rgba(247,248,243,.72);--line:rgba(18,20,17,.15);--muted:#71756e;min-height:100svh;color:var(--ink);background:radial-gradient(circle at 76% 4%,rgba(255,255,255,.94),transparent 32%),linear-gradient(135deg,#dadcd5,#f3f3ee 54%,#d8dad3);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Helvetica Neue",Arial,sans-serif}
+.aipm-game-shell *{box-sizing:border-box}
+.aipm-game-shell button,.aipm-game-shell textarea{font:inherit}
+.aipm-topbar{height:76px;position:sticky;top:0;z-index:60;display:grid;grid-template-columns:1fr minmax(280px,.8fr) 1fr;align-items:center;gap:30px;border-bottom:1px solid rgba(18,20,17,.15);padding:0 22px;background:rgba(238,239,233,.74);box-shadow:0 12px 36px rgba(31,34,29,.06);backdrop-filter:blur(28px) saturate(130%);-webkit-backdrop-filter:blur(28px) saturate(130%)}
+.aipm-wordmark{display:flex;align-items:baseline;gap:14px;color:inherit;text-decoration:none}
+.aipm-wordmark strong{font:600 17px/1 "Arial Narrow",sans-serif;letter-spacing:-.04em}
+.aipm-wordmark span,.aipm-progress-head,.aipm-account,.aipm-map-intro>span,.aipm-phase-block header>span,.aipm-mission-hero>div,.aipm-mission-hero aside span,.aipm-mission-hero aside small,.aipm-section-tag span,.aipm-section-tag small,.aipm-example-pair span,.aipm-scenario span,.aipm-draft>span,.aipm-draft small,.aipm-coach-panel header span,.aipm-message>span,.aipm-coach-panel footer small,.aipm-evidence-grid article>span,.aipm-evidence-grid article small{font:9px/1.35 Consolas,"SFMono-Regular",monospace;letter-spacing:.1em}
+.aipm-wordmark span{color:var(--muted)}
+.aipm-progress-head{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;color:#555950}
+.aipm-progress-head progress{width:100%;height:3px;border:0;appearance:none;background:#c8cac3}
+.aipm-progress-head progress::-webkit-progress-bar{background:#c8cac3}
+.aipm-progress-head progress::-webkit-progress-value{background:#171917}
+.aipm-progress-head progress::-moz-progress-bar{background:#171917}
+.aipm-account{display:flex;justify-content:flex-end;align-items:center;gap:10px}
+.aipm-account>span{max-width:170px;overflow:hidden;color:#555950;text-overflow:ellipsis;white-space:nowrap}
+.aipm-account button,.aipm-account a{min-height:36px;border:1px solid var(--line);border-radius:999px;padding:0 13px;color:#30332e;background:rgba(255,255,255,.35);font-size:9px;text-decoration:none;cursor:pointer}
+.aipm-account button:hover,.aipm-account a:hover{background:#fff}
+.aipm-game-grid{display:grid;grid-template-columns:264px minmax(550px,1fr) 360px;align-items:start}
+.aipm-level-map{height:calc(100svh - 76px);position:sticky;top:76px;overflow-y:auto;border-right:1px solid var(--line);background:rgba(229,231,224,.58);backdrop-filter:blur(24px)}
+.aipm-map-intro{padding:34px 20px 30px;border-bottom:1px solid var(--line)}
+.aipm-map-intro>span{color:var(--muted)}
+.aipm-map-intro h1{margin:20px 0 14px;font:500 26px/1.04 "Songti SC",STSong,serif;letter-spacing:-.055em}
+.aipm-map-intro p{margin:0;color:#6d716a;font-size:10px;line-height:1.7}
+.aipm-phase-block>header{display:grid;grid-template-columns:46px 1fr;gap:7px;padding:18px 16px 12px}
+.aipm-phase-block header>span{color:#898c86}
+.aipm-phase-block header div{display:grid;gap:4px}
+.aipm-phase-block header strong{font-size:11px}
+.aipm-phase-block header small{color:#777b73;font-size:8px}
+.aipm-phase-block ol{margin:0;padding:0;list-style:none}
+.aipm-phase-block li{border-top:1px solid rgba(18,20,17,.08)}
+.aipm-phase-block button{width:100%;min-height:56px;display:grid;grid-template-columns:35px 1fr auto;align-items:center;gap:7px;border:0;padding:8px 15px;color:#30332e;background:transparent;text-align:left;cursor:pointer}
+.aipm-phase-block button>span,.aipm-phase-block button>i{font:8px/1 Consolas,monospace;letter-spacing:.07em}
+.aipm-phase-block button>strong{font-size:10px;line-height:1.35;font-weight:560}
+.aipm-phase-block button>i{color:#777b73;font-style:normal}
+.aipm-phase-block button:hover:not(:disabled){background:rgba(255,255,255,.55)}
+.aipm-phase-block button[aria-current="step"]{color:#f1f2ed;background:#151714}
+.aipm-phase-block button[aria-current="step"]>i{color:#b9bcb5}
+.aipm-phase-block button:disabled{opacity:.34;cursor:not-allowed}
+.aipm-mission{min-width:0;padding:28px 28px 110px}
+.aipm-mission-hero,.aipm-live-project,.aipm-course-brief,.aipm-knowledge-atlas,.aipm-media-lesson,.aipm-term-group,.aipm-deep-dive,.aipm-knowledge-gate,.aipm-source-deck,.aipm-lesson-card,.aipm-example-pair,.aipm-practice-card,.aipm-rubric{max-width:930px;margin:0 auto 20px;border:1px solid rgba(18,20,17,.14);border-radius:26px;background:var(--glass);box-shadow:0 28px 90px rgba(33,36,31,.08),inset 0 1px 0 rgba(255,255,255,.86);backdrop-filter:blur(28px) saturate(120%);-webkit-backdrop-filter:blur(28px) saturate(120%)}
+.aipm-mission-hero{min-height:390px;position:relative;overflow:hidden;padding:38px}
+.aipm-mission-hero:before{content:"";width:320px;height:320px;position:absolute;right:-70px;top:-110px;border:1px solid rgba(18,20,17,.08);border-radius:50%;box-shadow:0 0 0 34px rgba(255,255,255,.12),0 0 0 72px rgba(18,20,17,.025)}
+.aipm-mission-hero>div{position:relative;z-index:1;display:flex;justify-content:space-between;color:#6d716a}
+.aipm-mission-hero>div b{border:1px solid currentColor;border-radius:999px;padding:5px 9px;color:#822927;font:8px/1 Consolas,monospace}
+.aipm-mission-hero h2{max-width:670px;position:relative;z-index:1;margin:58px 0 14px;font:500 clamp(46px,5.4vw,78px)/.94 "Songti SC",STSong,serif;letter-spacing:-.075em}
+.aipm-mission-hero>p{max-width:580px;position:relative;z-index:1;margin:0;color:#5f635c;font-size:13px;line-height:1.75}
+.aipm-mission-hero aside{max-width:660px;position:absolute;left:38px;right:38px;bottom:28px;display:grid;grid-template-columns:85px 1fr auto;align-items:center;gap:16px;border-top:1px solid var(--line);padding-top:17px}
+.aipm-mission-hero aside span,.aipm-mission-hero aside small{color:#767a72}
+.aipm-mission-hero aside strong{font-size:11px}
+.aipm-live-project{overflow:hidden;background:rgba(235,236,230,.82)}
+.aipm-live-project>header{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(260px,.95fr);gap:48px;padding:38px;border-bottom:1px solid var(--line);background:radial-gradient(circle at 14% 0,rgba(139,47,44,.1),transparent 36%),rgba(255,255,255,.28)}
+.aipm-live-project>header span,.aipm-project-contact-sheet summary>span,.aipm-project-contact-sheet summary small,.aipm-project-contact-sheet summary i,.aipm-project-body dt,.aipm-project-body footer span,.aipm-set-rail span,.aipm-set-rail a{font:9px/1.45 Consolas,"SFMono-Regular",monospace;letter-spacing:.09em}
+.aipm-live-project>header span{color:#8b2f2c}
+.aipm-live-project>header h3{margin:20px 0 0;font:400 36px/1.04 "Songti SC",serif;letter-spacing:-.06em}
+.aipm-live-project>header>p{align-self:end;margin:0;color:#5f635c;font-size:10px;line-height:1.85}
+.aipm-project-contact-sheet{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
+.aipm-project-contact-sheet details{min-width:0;background:rgba(247,248,243,.91)}
+.aipm-project-contact-sheet summary{min-height:116px;display:grid;grid-template-columns:74px 1fr auto;align-items:center;gap:12px;padding:22px 24px;cursor:pointer;list-style:none}
+.aipm-project-contact-sheet summary::-webkit-details-marker{display:none}
+.aipm-project-contact-sheet summary>span{color:#8b2f2c}
+.aipm-project-contact-sheet summary>div{display:grid;gap:7px}
+.aipm-project-contact-sheet summary strong{font:500 19px/1.18 "Songti SC",serif}
+.aipm-project-contact-sheet summary small,.aipm-project-contact-sheet summary i{color:#7e827a;font-style:normal}
+.aipm-project-contact-sheet details[open] summary{color:#eef0ea;background:#171916}
+.aipm-project-contact-sheet details[open] summary>span{color:#df7770}
+.aipm-project-contact-sheet details[open] summary small,.aipm-project-contact-sheet details[open] summary i{color:#979b93}
+.aipm-project-body{padding:0 24px 25px}
+.aipm-project-body>p{margin:24px 0;color:#4f534b;font:400 16px/1.65 "Songti SC",serif}
+.aipm-project-body dl{margin:0;display:grid;gap:7px}
+.aipm-project-body dl>div{display:grid;grid-template-columns:68px 1fr;gap:12px;border:1px solid var(--line);border-radius:13px;padding:14px;background:rgba(255,255,255,.48)}
+.aipm-project-body dt{color:#8b2f2c}
+.aipm-project-body dd{margin:0;color:#4d5149;font-size:10px;line-height:1.7}
+.aipm-project-body footer{display:flex;justify-content:space-between;gap:16px;margin-top:18px;border-top:1px solid var(--line);padding-top:16px}
+.aipm-project-body footer span{color:#7c8078}
+.aipm-project-body footer strong{font-size:10px;text-align:right}
+.aipm-set-rail{display:grid;grid-template-columns:minmax(270px,.8fr) 1.2fr auto;align-items:center;gap:22px;border-top:1px solid var(--line);padding:24px 26px;background:rgba(255,255,255,.48)}
+.aipm-set-rail>div{display:grid;grid-template-columns:1fr repeat(4,34px);align-items:center;gap:5px}
+.aipm-set-rail>div>span{grid-column:1/-1;margin-bottom:8px;color:#73776f}
+.aipm-set-rail>div>strong{height:34px;display:grid;place-items:center;border:1px solid var(--line);font:500 11px/1 Consolas,monospace}
+.aipm-set-rail>div>strong.is-current{border-color:#8b2f2c;color:#f1f2ed;background:#8b2f2c;box-shadow:0 0 0 5px rgba(139,47,44,.08)}
+.aipm-set-rail ol{margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:7px 18px;list-style:none}
+.aipm-set-rail li{position:relative;padding-left:13px;color:#555950;font-size:9px;line-height:1.55}
+.aipm-set-rail li:before{content:"+";position:absolute;left:0;color:#8b2f2c}
+.aipm-set-rail>a{border-bottom:1px solid currentColor;color:#333630;text-decoration:none;white-space:nowrap}
+.aipm-set-rail>a:hover{color:#8b2f2c}
+.aipm-lesson-card,.aipm-practice-card{display:grid;grid-template-columns:150px 1fr;padding:36px}
+.aipm-section-tag{display:grid;align-content:start;gap:8px}
+.aipm-section-tag span,.aipm-section-tag small{color:#7b7f77}
+.aipm-section-tag strong{font:500 20px/1.1 "Songti SC",serif}
+.aipm-lesson-copy>p{margin:0 0 17px;color:#444840;font-size:13px;line-height:1.9}
+.aipm-lesson-copy ul{margin:28px 0 0;padding:0;border-top:1px solid var(--line);list-style:none}
+.aipm-lesson-copy li{padding:14px 8px 14px 30px;position:relative;border-bottom:1px solid var(--line);font-size:11px}
+.aipm-lesson-copy li:before{content:"+";position:absolute;left:8px;color:#7d8179}
+.aipm-course-brief{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(260px,.85fr);overflow:hidden}
+.aipm-course-brief-main{padding:38px;background:#171916;color:#eef0ea}
+.aipm-course-brief-main>span,.aipm-course-brief-main>small,.aipm-media-copy>span,.aipm-term-group summary span,.aipm-deep-dive header,.aipm-deep-example span,.aipm-work-question span,.aipm-knowledge-gate header span,.aipm-quiz-list article>span,.aipm-source-deck header>span,.aipm-source-deck a>span,.aipm-source-deck a>i{font:9px/1.45 Consolas,"SFMono-Regular",monospace;letter-spacing:.1em}
+.aipm-course-brief-main>span{color:#9da098}
+.aipm-course-brief-main h3{margin:34px 0 18px;font:400 35px/1.05 "Songti SC",serif;letter-spacing:-.06em}
+.aipm-course-brief-main p{margin:0;color:#c6c9c2;font-size:12px;line-height:1.85}
+.aipm-course-brief-main>small{display:block;margin-top:30px;color:#92968e}
+.aipm-course-brief>ol{margin:0;padding:28px;display:grid;align-content:center;list-style:none}
+.aipm-course-brief>ol li{display:grid;grid-template-columns:38px 1fr;align-items:start;border-top:1px solid var(--line);padding:18px 0}
+.aipm-course-brief>ol li:last-child{border-bottom:1px solid var(--line)}
+.aipm-course-brief>ol span{color:#8a8e86;font:9px/1.5 Consolas,monospace}
+.aipm-course-brief>ol p{margin:0;font-size:11px;line-height:1.65}
+.aipm-knowledge-atlas{overflow:hidden;background:rgba(242,242,237,.88)}
+.aipm-knowledge-atlas>header{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(240px,.85fr);gap:48px;padding:38px;border-bottom:1px solid var(--line);background:linear-gradient(135deg,rgba(255,255,255,.62),rgba(225,226,219,.38))}
+.aipm-knowledge-atlas>header span,.aipm-knowledge-units summary>span,.aipm-knowledge-units summary small,.aipm-knowledge-units summary i,.aipm-knowledge-unit-body section>span,.aipm-knowledge-unit-body dt,.aipm-knowledge-unit-body>a{font:9px/1.45 Consolas,"SFMono-Regular",monospace;letter-spacing:.09em}
+.aipm-knowledge-atlas>header span{color:#7d8179}
+.aipm-knowledge-atlas>header h3{margin:20px 0 0;font:400 34px/1.06 "Songti SC",serif;letter-spacing:-.055em}
+.aipm-knowledge-atlas>header>p{align-self:end;margin:0;color:#62665e;font-size:10px;line-height:1.85}
+.aipm-job-ready-standard{display:grid;grid-template-columns:120px minmax(180px,.8fr) minmax(360px,1.2fr);align-items:center;gap:24px;padding:22px 30px;border-bottom:1px solid var(--line);background:#e8e9e3}
+.aipm-job-ready-standard>span,.aipm-job-ready-standard li b{font:9px/1.45 Consolas,"SFMono-Regular",monospace;letter-spacing:.09em;color:#8b2f2c}
+.aipm-job-ready-standard>strong{font:500 18px/1.35 "Songti SC",serif}
+.aipm-job-ready-standard ol{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin:0;padding:0;list-style:none;background:rgba(18,20,17,.12)}
+.aipm-job-ready-standard li{display:grid;gap:8px;padding:12px;background:#f4f4f0;color:#555950;font-size:9px;line-height:1.5}
+.aipm-knowledge-units details{border-bottom:1px solid var(--line)}
+.aipm-knowledge-units details:last-child{border-bottom:0}
+.aipm-knowledge-units summary{min-height:90px;display:grid;grid-template-columns:56px 1fr auto;align-items:center;gap:14px;padding:18px 30px;cursor:pointer;list-style:none;transition:background .2s ease}
+.aipm-knowledge-units summary::-webkit-details-marker{display:none}
+.aipm-knowledge-units summary:hover{background:rgba(255,255,255,.52)}
+.aipm-knowledge-units summary>span{color:#8b2f2c}
+.aipm-knowledge-units summary>div{display:grid;gap:6px}
+.aipm-knowledge-units summary small{color:#898d85}
+.aipm-knowledge-units summary strong{font:500 20px/1.2 "Songti SC",serif}
+.aipm-knowledge-units summary i{color:#858981;font-style:normal}
+.aipm-knowledge-units details[open] summary{color:#eff1eb;background:#171916}
+.aipm-knowledge-units details[open] summary>span{color:#dc7770}
+.aipm-knowledge-units details[open] summary small,.aipm-knowledge-units details[open] summary i{color:#9da198}
+.aipm-knowledge-unit-body{padding:34px 30px 30px}
+.aipm-knowledge-unit-body>section{display:grid;grid-template-columns:150px 1fr 1fr;gap:24px;padding-bottom:29px}
+.aipm-knowledge-unit-body section>span{color:#8b2f2c}
+.aipm-knowledge-unit-body section>p{margin:0;color:#474b44;font-size:11px;line-height:1.9}
+.aipm-knowledge-unit-body dl{margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;border:1px solid var(--line);border-radius:17px;overflow:hidden;background:var(--line)}
+.aipm-knowledge-unit-body dl>div{min-height:170px;padding:22px;background:rgba(250,250,247,.88)}
+.aipm-knowledge-unit-body dt{color:#777b73}
+.aipm-knowledge-unit-body dd{margin:28px 0 0;color:#30332f;font:400 15px/1.65 "Songti SC",serif}
+.aipm-knowledge-unit-body>a{display:inline-block;margin-top:22px;color:#686c64;text-underline-offset:4px}
+.aipm-knowledge-unit-body>a:hover{color:#171916}
+.aipm-career-practice{display:block!important;margin-top:24px;padding:0!important;border:1px solid rgba(139,47,44,.24);border-radius:20px;overflow:hidden;background:rgba(236,231,225,.72)}
+.aipm-career-practice>header{display:grid;grid-template-columns:1.25fr .75fr;gap:30px;padding:25px;border-bottom:1px solid rgba(139,47,44,.16);background:linear-gradient(120deg,rgba(255,255,255,.54),rgba(193,80,70,.07))}
+.aipm-career-practice>header span,.aipm-career-practice>header small,.aipm-career-evidence>span,.aipm-career-interview>span{font:9px/1.45 Consolas,"SFMono-Regular",monospace;letter-spacing:.09em;color:#8b2f2c}
+.aipm-career-practice h4{margin:12px 0 0;font:500 16px/1.65 "Songti SC",serif}
+.aipm-career-practice>header aside{padding-left:22px;border-left:1px solid rgba(139,47,44,.18)}
+.aipm-career-practice>header aside p{margin:10px 0 0;color:#4c5049;font-size:10px;line-height:1.7}
+.aipm-career-practice>ol{margin:0;padding:20px 25px;list-style:none;display:grid;gap:0}
+.aipm-career-practice>ol li{display:grid;grid-template-columns:42px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid rgba(18,20,17,.1)}
+.aipm-career-practice>ol li:last-child{border-bottom:0}
+.aipm-career-practice>ol b{color:#8b2f2c;font:9px/1.8 Consolas,monospace}
+.aipm-career-practice>ol p{margin:0;color:#3e423c;font-size:10px;line-height:1.75}
+.aipm-career-evidence,.aipm-career-interview{margin:0 25px 16px;padding:18px 20px;border-radius:15px;background:#171916;color:#eef0ea}
+.aipm-career-evidence strong{display:block;margin:11px 0 7px;font:500 18px/1.3 "Songti SC",serif}
+.aipm-career-evidence p,.aipm-career-interview p{margin:0;color:#b5b9b0;font-size:10px;line-height:1.7}
+.aipm-career-interview{background:#f8f8f4;color:#242622;border:1px solid rgba(18,20,17,.12)}
+.aipm-career-interview p{margin-top:10px;color:#323630;font:500 16px/1.55 "Songti SC",serif}
+.aipm-career-practice>ul{margin:0;padding:5px 25px 24px;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.aipm-career-practice>ul li{position:relative;padding:14px 14px 14px 27px;border:1px solid rgba(18,20,17,.1);border-radius:12px;color:#595d55;font-size:9px;line-height:1.65;background:rgba(255,255,255,.48)}
+.aipm-career-practice>ul li::before{content:"✓";position:absolute;left:10px;top:14px;color:#8b2f2c}
+.aipm-media-lesson{display:grid;grid-template-columns:310px 1fr;overflow:hidden;background:#0f100f;color:#e7e9e3}
+.aipm-media-copy{padding:34px}
+.aipm-media-copy>span{color:#8f938b}
+.aipm-media-copy h3{margin:38px 0 15px;font:400 29px/1.08 "Songti SC",serif}
+.aipm-media-copy p{margin:0;color:#aeb2aa;font-size:10px;line-height:1.8}
+.aipm-media-copy a{display:inline-block;margin-top:28px;color:#f0f2ec;font-size:10px;text-underline-offset:4px}
+.aipm-video-frame{min-height:315px;background:#070807}
+.aipm-video-frame iframe{width:100%;height:100%;min-height:315px;border:0}
+.aipm-term-group{overflow:hidden}
+.aipm-term-group summary{display:flex;justify-content:space-between;align-items:center;gap:25px;padding:27px 31px;cursor:pointer;list-style:none}
+.aipm-term-group summary::-webkit-details-marker{display:none}
+.aipm-term-group summary>div{min-width:0}
+.aipm-term-group summary span{color:#7d8179}
+.aipm-term-group summary h3{margin:8px 0 6px;font:500 22px/1.1 "Songti SC",serif}
+.aipm-term-group summary p{margin:0;color:#72766e;font-size:10px}
+.aipm-term-group summary i{color:#8b8f87;font:8px/1 Consolas,monospace;white-space:nowrap}
+.aipm-term-group[open] summary{border-bottom:1px solid var(--line)}
+.aipm-term-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line)}
+.aipm-term-grid article{min-height:210px;padding:27px;background:rgba(248,249,245,.92)}
+.aipm-term-grid strong{display:block;font:500 17px/1.25 "Songti SC",serif}
+.aipm-term-grid p{margin:15px 0;color:#50544d;font-size:10px;line-height:1.75}
+.aipm-term-grid small{display:block;margin-top:24px;color:#8b2f2c;font:8px/1 Consolas,monospace;letter-spacing:.08em}
+.aipm-deep-dive{padding:38px}
+.aipm-deep-dive header{display:flex;justify-content:space-between;color:#7e827a}
+.aipm-deep-dive h3{max-width:650px;margin:42px 0 28px;font:400 34px/1.08 "Songti SC",serif;letter-spacing:-.055em}
+.aipm-deep-copy{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.aipm-deep-copy p{margin:0;color:#4e524a;font-size:12px;line-height:1.95}
+.aipm-deep-example,.aipm-work-question{margin-top:28px;border-radius:18px;padding:23px}
+.aipm-deep-example{background:#171916;color:#e6e8e2}
+.aipm-work-question{border:1px solid rgba(130,41,39,.28);background:rgba(130,41,39,.05)}
+.aipm-deep-example span{color:#9da098}
+.aipm-work-question span{color:#8b2f2c}
+.aipm-deep-example p,.aipm-work-question p{margin:12px 0 0;font:400 17px/1.6 "Songti SC",serif}
+.aipm-knowledge-gate{overflow:hidden;background:rgba(239,240,235,.92)}
+.aipm-knowledge-gate>header{display:flex;justify-content:space-between;align-items:flex-end;gap:35px;padding:34px;border-bottom:1px solid var(--line)}
+.aipm-knowledge-gate header span{color:#7c8078}
+.aipm-knowledge-gate header h3{margin:10px 0 8px;font:400 29px/1.1 "Songti SC",serif}
+.aipm-knowledge-gate header p{max-width:560px;margin:0;color:#686c64;font-size:10px;line-height:1.7}
+.aipm-knowledge-gate header>strong{font:500 30px/1 "Arial Narrow",sans-serif;white-space:nowrap}
+.aipm-quiz-list article{padding:31px 34px;border-bottom:1px solid var(--line)}
+.aipm-quiz-list article>span{color:#8a8e86}
+.aipm-quiz-list h4{margin:15px 0 20px;font-size:13px;line-height:1.65}
+.aipm-quiz-list article>div{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.aipm-quiz-list button{min-height:52px;display:grid;grid-template-columns:30px 1fr;align-items:center;border:1px solid var(--line);border-radius:13px;padding:10px 14px;color:#3f433c;background:rgba(255,255,255,.55);text-align:left;font-size:10px;line-height:1.5;cursor:pointer}
+.aipm-quiz-list button:hover{border-color:#6f736b;background:#fff}
+.aipm-quiz-list button i{font:9px/1 Consolas,monospace;font-style:normal}
+.aipm-quiz-list button.is-correct{border-color:#4f6a51;color:#263f2b;background:rgba(74,112,78,.1)}
+.aipm-quiz-list button.is-wrong{border-color:#9c4a45;color:#6b2926;background:rgba(139,47,44,.09)}
+.aipm-quiz-list article>p{margin:14px 0 0;font-size:10px;line-height:1.7}
+.aipm-quiz-list article>p.is-correct{color:#315438}
+.aipm-quiz-list article>p.is-wrong{color:#7f2e2a}
+.aipm-knowledge-gate>footer{padding:20px 34px;color:#6b6f67;font-size:10px}
+.aipm-knowledge-gate.is-passed>footer{color:#ecf0e9;background:#1a211b}
+.aipm-source-deck{padding:34px}
+.aipm-source-deck>header{max-width:650px}
+.aipm-source-deck header>span{color:#7e827a}
+.aipm-source-deck header h3{margin:12px 0 9px;font:400 28px/1.1 "Songti SC",serif}
+.aipm-source-deck header p{margin:0;color:#6b6f67;font-size:10px;line-height:1.75}
+.aipm-source-deck>div{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:27px}
+.aipm-source-deck a{min-height:190px;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:17px;padding:21px;color:inherit;background:rgba(255,255,255,.4);text-decoration:none;transition:transform .2s ease,background .2s ease}
+.aipm-source-deck a:hover{transform:translateY(-3px);background:#fff}
+.aipm-source-deck a>span,.aipm-source-deck a>i{color:#82867e}
+.aipm-source-deck a>strong{margin-top:20px;font:500 17px/1.3 "Songti SC",serif}
+.aipm-source-deck a>p{margin:10px 0;color:#63675f;font-size:9px;line-height:1.65}
+.aipm-source-deck a>i{margin-top:auto;font-style:normal}
+.aipm-practice-card{scroll-margin-top:96px}
+.aipm-example-pair{display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+.aipm-example-pair>div{min-height:230px;display:flex;flex-direction:column;padding:30px}
+.aipm-example-pair .is-bad{color:#d7d9d2;background:rgba(22,24,21,.94)}
+.aipm-example-pair .is-good{border-left:1px solid var(--line);background:rgba(255,255,255,.42)}
+.aipm-example-pair span{color:#858981}
+.aipm-example-pair p{margin:auto 0 0;font:400 18px/1.65 "Songti SC",STSong,serif}
+.aipm-practice-card{row-gap:28px}
+.aipm-practice-card>ol{margin:0;padding:0;list-style:none}
+.aipm-practice-card>ol li{min-height:52px;display:grid;grid-template-columns:42px 1fr;align-items:center;border-top:1px solid var(--line);font-size:12px}
+.aipm-practice-card>ol li:last-child{border-bottom:1px solid var(--line)}
+.aipm-practice-card>ol span{color:#777b73;font:9px/1 Consolas,monospace}
+.aipm-scenario,.aipm-draft,.aipm-draft-actions{grid-column:2}
+.aipm-scenario{border-radius:18px;padding:24px;color:#eceee8;background:#171916}
+.aipm-scenario span{color:#a8aca3}
+.aipm-scenario p{margin:15px 0 0;font:400 19px/1.55 "Songti SC",serif}
+.aipm-draft{display:block}
+.aipm-draft>span{display:block;margin-bottom:10px;color:#555950}
+.aipm-draft textarea{width:100%;resize:vertical;border:1px solid rgba(18,20,17,.18);border-radius:18px;padding:22px;color:#1d1f1c;background:rgba(255,255,255,.6);outline:none;font-size:13px;line-height:1.85}
+.aipm-draft textarea:focus{border-color:#1b1d1a;box-shadow:0 0 0 3px rgba(18,20,17,.08)}
+.aipm-draft small{display:block;margin-top:8px;color:#7b7f77}
+.aipm-draft-actions{display:flex;justify-content:flex-end;gap:9px}
+.aipm-draft-actions button{min-height:46px;border:1px solid #1b1d1a;border-radius:14px;padding:0 17px;color:#1b1d1a;background:transparent;font-size:10px;cursor:pointer}
+.aipm-draft-actions button.is-primary{color:#f1f2ed;background:#171916}
+.aipm-draft-actions button:disabled{opacity:.36;cursor:not-allowed}
+.aipm-rubric{padding:36px}
+.aipm-rubric>header{display:grid;grid-template-columns:150px 1fr;align-items:start}
+.aipm-rubric>header>p{margin:0;color:#5f635c;font-size:12px;line-height:1.8}
+.aipm-rubric>ul{margin:30px 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;list-style:none}
+.aipm-rubric>ul li{min-height:90px;border:1px solid var(--line);border-radius:15px;padding:18px;font-size:10px;line-height:1.65}
+.aipm-score{display:grid;grid-template-columns:140px 1fr;gap:22px;border-radius:20px;padding:26px;color:#eceee8;background:#4b2523}
+.aipm-score.is-pass{background:#1a211b}
+.aipm-score>div:first-child{display:flex;align-items:baseline;flex-wrap:wrap}
+.aipm-score>div strong{font:500 60px/1 "Arial Narrow",sans-serif;letter-spacing:-.08em}
+.aipm-score>div span{color:#aeb2aa;font:9px/1 Consolas,monospace}
+.aipm-score>div b{width:100%;margin-top:10px;color:#d8dad4;font:9px/1 Consolas,monospace;letter-spacing:.12em}
+.aipm-score dl{grid-column:2;display:grid;grid-template-columns:repeat(4,1fr);margin:0}
+.aipm-score dl>div{border-left:1px solid rgba(255,255,255,.13);padding:8px 14px}
+.aipm-score dt{color:#aeb2aa;font-size:9px}
+.aipm-score dd{margin:8px 0 0;font:500 24px/1 "Arial Narrow",sans-serif}
+.aipm-score section{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.15);padding-top:18px}
+.aipm-score section p{margin:0 0 14px;color:#c9ccc5;font-size:11px;line-height:1.75}
+.aipm-score section strong{font-size:10px}
+.aipm-score-empty{border:1px dashed rgba(18,20,17,.2);border-radius:18px;padding:26px;color:#777b73;font-size:11px;text-align:center}
+.aipm-coach-panel{height:calc(100svh - 76px);position:sticky;top:76px;display:grid;grid-template-rows:auto 1fr auto;border-left:1px solid var(--line);background:rgba(244,245,240,.66);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px)}
+.aipm-coach-panel>header{padding:28px 24px 22px;border-bottom:1px solid var(--line)}
+.aipm-coach-panel>header>div{display:flex;align-items:center;gap:9px}
+.aipm-coach-panel header i{width:7px;height:7px;border-radius:50%;background:#8b2f2c;box-shadow:0 0 0 6px rgba(139,47,44,.09),0 0 20px rgba(139,47,44,.32)}
+.aipm-coach-panel header span{color:#6f736b}
+.aipm-coach-panel header strong{display:block;margin:26px 0 13px;font:400 26px/1.12 "Songti SC",serif;letter-spacing:-.045em}
+.aipm-coach-panel header p{margin:0;color:#73776f;font-size:10px;line-height:1.75}
+.aipm-chat-log{min-height:0;overflow-y:auto;padding:18px}
+.aipm-coach-empty{border:1px dashed var(--line);border-radius:16px;padding:18px;color:#6f736b}
+.aipm-coach-empty span{font-size:9px}
+.aipm-coach-empty p{margin:12px 0 0;font-size:11px;line-height:1.65}
+.aipm-message{margin-bottom:12px;border-radius:16px;padding:15px}
+.aipm-message.is-user{margin-left:34px;color:#eceee8;background:#1c1e1b}
+.aipm-message.is-assistant{margin-right:20px;border:1px solid var(--line);background:rgba(255,255,255,.55)}
+.aipm-message>span{color:#858981}
+.aipm-message p{margin:10px 0 0;white-space:pre-wrap;font-size:11px;line-height:1.75}
+.aipm-thinking{display:flex;align-items:center;gap:5px;padding:12px;color:#777b73;font-size:9px}
+.aipm-thinking i{width:5px;height:5px;border-radius:50%;background:#777b73;animation:aipm-pulse 1.1s infinite}
+.aipm-thinking i:nth-child(2){animation-delay:.16s}
+.aipm-thinking i:nth-child(3){animation-delay:.32s}
+.aipm-thinking span{margin-left:6px}
+.aipm-coach-panel>footer{padding:16px;border-top:1px solid var(--line)}
+.aipm-coach-panel footer textarea{width:100%;resize:none;border:1px solid var(--line);border-radius:15px;padding:15px;color:#20221f;background:rgba(255,255,255,.62);outline:none;font-size:11px;line-height:1.65}
+.aipm-coach-panel footer button{width:100%;min-height:44px;margin-top:8px;border:0;border-radius:13px;padding:0 14px;display:flex;justify-content:space-between;align-items:center;color:#eef0ea;background:#191b18;font-size:10px;cursor:pointer}
+.aipm-coach-panel footer button:disabled{opacity:.38}
+.aipm-coach-panel footer small{display:block;margin-top:10px;color:#858981;text-align:center}
+.aipm-toast{max-width:620px;position:fixed;z-index:90;left:50%;bottom:24px;transform:translateX(-50%);display:flex;align-items:center;gap:18px;border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:13px 14px 13px 18px;color:#eff1eb;background:rgba(23,25,22,.92);box-shadow:0 20px 60px rgba(0,0,0,.25);backdrop-filter:blur(20px);font-size:10px}
+.aipm-toast button{border:0;color:inherit;background:transparent;font-size:20px;cursor:pointer}
+.aipm-backpack-layer{position:fixed;z-index:100;inset:0}
+.aipm-backdrop{position:absolute;inset:0;border:0;background:rgba(19,21,18,.48);backdrop-filter:blur(10px)}
+.aipm-backpack-layer>section{width:min(920px,calc(100% - 40px));max-height:calc(100svh - 40px);position:absolute;right:20px;top:20px;overflow:auto;border:1px solid rgba(255,255,255,.28);border-radius:28px;color:#edeee9;background:rgba(23,25,22,.94);box-shadow:0 40px 120px rgba(0,0,0,.38)}
+.aipm-backpack-layer>section>header{display:flex;justify-content:space-between;gap:30px;padding:42px;border-bottom:1px solid rgba(255,255,255,.12)}
+.aipm-backpack-layer header span{color:#93978f;font:9px/1 Consolas,monospace;letter-spacing:.12em}
+.aipm-backpack-layer header h2{margin:24px 0 0;font:400 38px/1.05 "Songti SC",serif;letter-spacing:-.06em}
+.aipm-backpack-layer header button{align-self:start;border:1px solid rgba(255,255,255,.17);border-radius:999px;padding:10px 15px;color:#dfe1db;background:transparent;font-size:9px;cursor:pointer}
+.aipm-evidence-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:20px}
+.aipm-evidence-grid article{min-height:250px;border:1px solid rgba(255,255,255,.11);border-radius:20px;padding:25px;background:rgba(255,255,255,.035)}
+.aipm-evidence-grid article>span,.aipm-evidence-grid article small{color:#8f938b}
+.aipm-evidence-grid h3{margin:25px 0 15px;font:400 24px/1.15 "Songti SC",serif}
+.aipm-evidence-grid p{color:#b8bbb3;font-size:10px;line-height:1.75}
+.aipm-evidence-grid article small{display:block;margin-top:26px}
+.aipm-evidence-empty{grid-column:1/-1;padding:100px 30px;color:#8f938b;text-align:center}
+.aipm-loading{min-height:100svh;display:grid;place-content:center;gap:16px;color:#1b1d1a;background:#eceee8;text-align:center}
+.aipm-loading span{font:9px/1 Consolas,monospace;letter-spacing:.14em}
+.aipm-loading strong{font:400 30px/1 "Songti SC",serif}
+.aipm-loading small{max-width:440px;color:#777b73;font:10px/1.8 var(--site-sans)}
+.aipm-loading button,.aipm-loading a{min-width:180px;border:1px solid var(--site-ink);border-radius:1px;padding:13px 18px;color:var(--site-paper-bright);background:var(--site-ink);font:10px/1 var(--site-sans);text-decoration:none;cursor:pointer}
+.aipm-loading a{color:var(--site-ink);background:transparent}.aipm-loading button:hover{background:var(--site-cinnabar)}
+@keyframes aipm-pulse{0%,80%,100%{opacity:.3;transform:scale(.7)}
+40%{opacity:1;transform:scale(1)}
+}
+@media(max-width:1240px){.aipm-game-grid{grid-template-columns:235px minmax(520px,1fr) 320px}
+.aipm-topbar{grid-template-columns:1fr auto}
+.aipm-progress-head{display:none}
+.aipm-mission{padding-inline:18px}
+.aipm-lesson-card,.aipm-practice-card{grid-template-columns:125px 1fr}
+}
+@media(max-width:980px){.aipm-topbar{height:auto;min-height:70px;grid-template-columns:1fr auto;padding-block:10px}
+.aipm-wordmark span,.aipm-account>span{display:none}
+.aipm-game-grid{display:block}
+.aipm-level-map,.aipm-coach-panel{height:auto;position:static}
+.aipm-level-map{border-right:0}
+.aipm-map-intro{display:none}
+.aipm-phase-block{display:inline}
+.aipm-phase-block>header{display:none}
+.aipm-phase-block ol{display:flex;overflow-x:auto}
+.aipm-phase-block li{min-width:160px}
+.aipm-level-map{position:sticky;top:70px;z-index:50;display:flex;overflow-x:auto;border-bottom:1px solid var(--line)}
+.aipm-mission{padding:18px 12px 50px}
+.aipm-coach-panel{margin:0 12px 80px;border:1px solid var(--line);border-radius:24px;overflow:hidden}
+.aipm-chat-log{max-height:480px}
+.aipm-mission-hero,.aipm-live-project,.aipm-course-brief,.aipm-knowledge-atlas,.aipm-media-lesson,.aipm-term-group,.aipm-deep-dive,.aipm-knowledge-gate,.aipm-source-deck,.aipm-lesson-card,.aipm-example-pair,.aipm-practice-card,.aipm-rubric{border-radius:20px}
+.aipm-media-lesson{grid-template-columns:280px 1fr}
+}
+@media(max-width:640px){.aipm-account a{display:none}
+.aipm-account button{padding-inline:10px}
+.aipm-mission-hero{min-height:410px;padding:26px 22px}
+.aipm-mission-hero h2{margin-top:52px;font-size:46px}
+.aipm-mission-hero aside{left:22px;right:22px;grid-template-columns:1fr}
+.aipm-mission-hero aside span{display:none}
+.aipm-live-project>header{grid-template-columns:1fr;gap:20px;padding:28px 22px}
+.aipm-live-project>header h3{font-size:30px}
+.aipm-project-contact-sheet{grid-template-columns:1fr}
+.aipm-project-contact-sheet summary{grid-template-columns:62px 1fr;padding:21px 20px}
+.aipm-project-contact-sheet summary i{display:none}
+.aipm-project-body{padding-inline:20px}
+.aipm-set-rail{grid-template-columns:1fr;padding:22px 20px}
+.aipm-set-rail ol{grid-template-columns:1fr}
+.aipm-set-rail>a{justify-self:start}
+.aipm-course-brief,.aipm-media-lesson{grid-template-columns:1fr}
+.aipm-course-brief-main,.aipm-media-copy{padding:28px 23px}
+.aipm-knowledge-atlas>header{grid-template-columns:1fr;gap:20px;padding:28px 22px}
+.aipm-job-ready-standard{grid-template-columns:1fr;padding:22px}
+.aipm-job-ready-standard ol{grid-template-columns:repeat(2,1fr)}
+.aipm-knowledge-atlas>header h3{font-size:29px}
+.aipm-knowledge-units summary{grid-template-columns:42px 1fr;padding:18px 20px}
+.aipm-knowledge-units summary i{display:none}
+.aipm-knowledge-unit-body{padding:27px 20px}
+.aipm-knowledge-unit-body>section{grid-template-columns:1fr;gap:13px}
+.aipm-knowledge-unit-body dl{grid-template-columns:1fr}
+.aipm-knowledge-unit-body dl>div{min-height:0}
+.aipm-career-practice>header{grid-template-columns:1fr;gap:18px;padding:21px}
+.aipm-career-practice>header aside{padding:16px 0 0;border-left:0;border-top:1px solid rgba(139,47,44,.18)}
+.aipm-career-practice>ol{padding-inline:20px}
+.aipm-career-evidence,.aipm-career-interview{margin-inline:20px}
+.aipm-career-practice>ul{grid-template-columns:1fr;padding-inline:20px}
+.aipm-video-frame,.aipm-video-frame iframe{min-height:220px}
+.aipm-term-group summary{padding:23px 20px}
+.aipm-term-group summary i{display:none}
+.aipm-term-grid,.aipm-deep-copy,.aipm-source-deck>div,.aipm-quiz-list article>div{grid-template-columns:1fr}
+.aipm-term-grid article{min-height:auto;padding:23px 20px}
+.aipm-deep-dive,.aipm-source-deck{padding:28px 21px}
+.aipm-deep-dive h3{margin-top:32px;font-size:29px}
+.aipm-knowledge-gate>header{display:block;padding:28px 21px}
+.aipm-knowledge-gate header>strong{display:block;margin-top:20px}
+.aipm-quiz-list article{padding:25px 21px}
+.aipm-knowledge-gate>footer{padding-inline:21px}
+.aipm-lesson-card,.aipm-practice-card{display:block;padding:24px 20px}
+.aipm-section-tag{margin-bottom:28px}
+.aipm-example-pair{grid-template-columns:1fr}
+.aipm-example-pair>div{min-height:190px}
+.aipm-example-pair .is-good{border-left:0;border-top:1px solid var(--line)}
+.aipm-scenario,.aipm-draft,.aipm-draft-actions{margin-top:24px}
+.aipm-draft-actions{flex-direction:column}
+.aipm-rubric{padding:24px 20px}
+.aipm-rubric>header{display:block}
+.aipm-rubric>ul{grid-template-columns:1fr}
+.aipm-score{grid-template-columns:1fr}
+.aipm-score dl{grid-column:1}
+.aipm-score section{grid-column:1}
+.aipm-evidence-grid{grid-template-columns:1fr}
+.aipm-backpack-layer>section>header{padding:28px 24px}
+.aipm-backpack-layer header h2{font-size:30px}
+}
+@media(prefers-reduced-motion:reduce){.aipm-thinking i{animation:none}
+.aipm-source-deck a{transition:none}
+}
+
+/* V4 · Eastern futurist editorial system */
+.aipm-game-shell{--ink:var(--site-ink);--paper:var(--site-paper);--glass:rgba(250,248,242,.86);--line:var(--site-hairline);--muted:var(--site-silver);background:linear-gradient(115deg,#dad8d1,var(--site-paper-bright) 51%,#d9d7d0);font-family:var(--site-sans)}
+.aipm-topbar{height:68px;grid-template-columns:1fr minmax(280px,.8fr) 1fr;border-color:var(--line);background:rgba(240,238,232,.93);box-shadow:none;backdrop-filter:blur(12px)}
+.aipm-wordmark strong{font-family:var(--site-sans)}
+.aipm-wordmark span,.aipm-progress-head,.aipm-account,.aipm-map-intro>span,.aipm-phase-block header>span,.aipm-mission-hero>div,.aipm-mission-hero aside span,.aipm-mission-hero aside small,.aipm-section-tag span,.aipm-section-tag small,.aipm-example-pair span,.aipm-scenario span,.aipm-draft>span,.aipm-draft small,.aipm-coach-panel header span,.aipm-message>span,.aipm-coach-panel footer small,.aipm-evidence-grid article>span,.aipm-evidence-grid article small{font-family:var(--site-mono)}
+.aipm-account button,.aipm-account a{border-radius:0;background:transparent}.aipm-account button:hover,.aipm-account a:hover{color:var(--site-paper-bright);background:var(--site-ink)}
+.aipm-game-grid{grid-template-columns:260px minmax(560px,1fr) 370px}
+.aipm-level-map{height:calc(100svh - 68px);top:68px;background:#e2e1db;backdrop-filter:none}.aipm-map-intro{position:relative;padding-top:50px}.aipm-map-intro:before{content:"";width:1px;height:25px;position:absolute;left:20px;top:15px;background:var(--site-cinnabar)}.aipm-map-intro h1{font-family:var(--site-song);font-weight:400}.aipm-phase-block button{min-height:58px}.aipm-phase-block button[aria-current="step"]{position:relative;background:var(--site-ink)}.aipm-phase-block button[aria-current="step"]:before{content:"";width:3px;position:absolute;inset:0 auto 0 0;background:var(--site-cinnabar)}
+.aipm-mission{padding:34px 30px 120px}
+.aipm-mission-hero,.aipm-live-project,.aipm-course-brief,.aipm-knowledge-atlas,.aipm-media-lesson,.aipm-term-group,.aipm-deep-dive,.aipm-knowledge-gate,.aipm-source-deck,.aipm-lesson-card,.aipm-example-pair,.aipm-practice-card,.aipm-rubric{max-width:970px;border-color:var(--line);border-radius:2px;background:rgba(250,248,242,.76);box-shadow:none;backdrop-filter:none}
+.aipm-mission-hero{min-height:430px;border-top-color:var(--site-ink);padding:42px}.aipm-mission-hero:before{content:"LEVEL";width:auto;height:auto;right:-.03em;top:.1em;border:0;border-radius:0;color:rgba(23,25,22,.04);font:700 clamp(100px,13vw,210px)/.75 var(--site-sans);letter-spacing:-.08em;box-shadow:none}.aipm-mission-hero>div b{border-radius:0;color:var(--site-cinnabar)}.aipm-mission-hero h2{font-family:var(--site-song);font-weight:400}.aipm-mission-hero aside{max-width:none}.aipm-mission-hero aside:before{content:"";width:6px;height:6px;position:absolute;left:-3px;top:-3px;rotate:45deg;background:var(--site-cinnabar)}
+.aipm-evidence-thread-strip{max-width:970px;display:grid;grid-template-columns:repeat(4,1fr);margin:0 auto 20px;border-top:1px solid var(--site-ink);border-bottom:1px solid var(--line);background:rgba(250,248,242,.42)}.aipm-evidence-thread-strip span{min-height:80px;position:relative;display:grid;align-content:space-between;border-right:1px solid var(--line);padding:14px 16px;color:#4d514b;font:400 13px/1.2 var(--site-song)}.aipm-evidence-thread-strip span:last-child{border-right:0}.aipm-evidence-thread-strip b{color:var(--site-cinnabar);font:400 8px/1 var(--site-mono);letter-spacing:.12em}.aipm-evidence-thread-strip i{width:5px;height:5px;position:absolute;right:-3px;top:17px;z-index:1;rotate:45deg;background:var(--site-jade)}.aipm-evidence-thread-strip span:last-child i{display:none}
+.aipm-live-project>header,.aipm-knowledge-atlas>header{background:rgba(255,255,255,.23)}.aipm-project-body dl>div,.aipm-career-practice,.aipm-knowledge-unit-body dl,.aipm-knowledge-unit-body dl>div,.aipm-career-evidence,.aipm-career-interview,.aipm-career-practice>ul li,.aipm-deep-example,.aipm-work-question,.aipm-quiz-list button,.aipm-source-deck a,.aipm-scenario,.aipm-draft textarea,.aipm-rubric>ul li,.aipm-score,.aipm-score-empty{border-radius:1px}
+.aipm-project-contact-sheet details,.aipm-term-grid article{background:rgba(250,248,242,.78)}.aipm-project-contact-sheet details[open] summary,.aipm-knowledge-units details[open] summary{background:var(--site-ink)}.aipm-job-ready-standard{background:#dedfd9}.aipm-job-ready-standard li{background:var(--site-paper-bright)}
+.aipm-course-brief-main,.aipm-media-lesson,.aipm-deep-example,.aipm-scenario{background:var(--site-ink)}.aipm-media-copy{background:var(--site-ink)}.aipm-career-practice{background:rgba(237,233,226,.76)}.aipm-career-practice>header{background:transparent}.aipm-career-evidence{background:var(--site-ink)}
+.aipm-coach-panel{height:calc(100svh - 68px);top:68px;background:#e7e6df;backdrop-filter:none}.aipm-coach-panel header i{border-radius:0;rotate:45deg;background:var(--site-cinnabar)}.aipm-coach-panel header strong{font-family:var(--site-song)}.aipm-coach-empty,.aipm-message,.aipm-coach-panel footer textarea,.aipm-coach-panel footer button{border-radius:1px}.aipm-message.is-user{background:var(--site-ink)}.aipm-message.is-assistant{background:rgba(250,248,242,.72)}.aipm-coach-panel footer button:hover{background:var(--site-cinnabar)}
+.aipm-toast,.aipm-backpack-layer>section,.aipm-backpack-layer header button,.aipm-evidence-grid article{border-radius:1px}.aipm-backpack-layer>section{background:rgba(23,25,22,.97)}
+@media(max-width:1240px){.aipm-game-grid{grid-template-columns:235px minmax(520px,1fr) 320px}.aipm-mission{padding-inline:18px}}
+@media(max-width:980px){.aipm-topbar{height:auto}.aipm-level-map{top:70px}.aipm-coach-panel{height:auto;top:auto;border-radius:1px}.aipm-mission-hero,.aipm-live-project,.aipm-course-brief,.aipm-knowledge-atlas,.aipm-media-lesson,.aipm-term-group,.aipm-deep-dive,.aipm-knowledge-gate,.aipm-source-deck,.aipm-lesson-card,.aipm-example-pair,.aipm-practice-card,.aipm-rubric{border-radius:1px}}
+@media(max-width:640px){.aipm-evidence-thread-strip{grid-template-columns:1fr 1fr}.aipm-evidence-thread-strip span{min-height:66px;border-bottom:1px solid var(--line)}.aipm-evidence-thread-strip span:nth-child(2n){border-right:0}.aipm-evidence-thread-strip span:nth-last-child(-n+2){border-bottom:0}.aipm-evidence-thread-strip span:nth-child(2) i{display:none}.aipm-mission-hero{padding:28px 22px}.aipm-mission-hero:before{font-size:30vw}.aipm-career-practice,.aipm-career-evidence,.aipm-career-interview{border-radius:1px}}

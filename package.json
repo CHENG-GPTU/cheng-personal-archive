@@ -1,0 +1,54 @@
+{
+  "name": "site-creator-vinext-starter",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "next build && node --test tests/polaroid.test.mjs tests/lanyard.test.mjs tests/side-rays.test.mjs tests/rendered-html.test.mjs tests/story-motion.test.mjs tests/fitness-mvp.test.mjs tests/training-data.test.mjs tests/aipm-levels.test.mjs tests/aipm-course-content.test.mjs tests/aipm-knowledge-map.test.mjs tests/aipm-career-track.test.mjs tests/life-schedule-data.test.mjs tests/health-expert-data.test.mjs",
+    "lint": "eslint app db tests --ignore-pattern dist --ignore-pattern .next --ignore-pattern work --ignore-pattern node_modules.junction-backup --ignore-pattern .pnpm-store",
+    "db:generate": "drizzle-kit generate",
+    "db:push": "drizzle-kit push",
+    "test:archive": "node --experimental-strip-types --test tests/archive-music.test.mjs tests/archive-audio-asset.test.mjs tests/archive-entry.test.mjs tests/archive-dive.test.mjs tests/about-interaction.test.mjs tests/eye-resume.test.mjs",
+    "test:archive:browser": "next build && node --test tests/archive-experience.browser.test.mjs",
+    "audio:prepare": "node scripts/prepare-archive-audio.mjs"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "1.0.2",
+    "@react-three/drei": "^10.7.8",
+    "@react-three/fiber": "^9.7.0",
+    "@react-three/rapier": "^2.2.0",
+    "drizzle-orm": "0.45.2",
+    "meshline": "^3.3.1",
+    "next": "16.2.6",
+    "ogl": "1.0.11",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "three": "^0.185.1"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "1.37.1",
+    "@tailwindcss/postcss": "4.2.1",
+    "@types/node": "22.19.19",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@types/three": "^0.185.4",
+    "@vitejs/plugin-react": "6.0.2",
+    "@vitejs/plugin-rsc": "0.5.26",
+    "drizzle-kit": "0.31.10",
+    "eslint": "9.39.4",
+    "eslint-config-next": "16.2.6",
+    "playwright": "^1.63.0",
+    "react-server-dom-webpack": "19.2.6",
+    "tailwindcss": "4.2.1",
+    "typescript": "5.9.3",
+    "vinext": "0.0.50",
+    "vite": "8.0.13",
+    "wrangler": "4.92.0"
+  },
+  "type": "module"
+}

@@ -1,0 +1,307 @@
+.pv-shell {
+  --pv-black: #070707;
+  --pv-panel: #11110f;
+  --pv-panel-soft: #171715;
+  --pv-ink: #efeee8;
+  --pv-muted: #92928a;
+  --pv-metal: #bdb29f;
+  --pv-line: rgba(239, 238, 232, 0.14);
+  min-height: 100%;
+  padding: clamp(24px, 4vw, 64px);
+  overflow: hidden;
+  color: var(--pv-ink);
+  background:
+    radial-gradient(circle at 74% 8%, rgba(189, 178, 159, 0.1), transparent 30%),
+    linear-gradient(145deg, #090909 0%, var(--pv-black) 62%, #0d0d0c 100%);
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+}
+
+.pv-shell{--pv-black:#141614;--pv-panel:#1d201d;--pv-panel-soft:#242824;--pv-ink:var(--site-paper-bright);--pv-muted:#9ba099;--pv-metal:#aab4ae;--pv-line:rgba(250,248,242,.14);background:radial-gradient(circle at 74% 8%,rgba(163,45,41,.09),transparent 30%),var(--pv-black);font-family:var(--site-sans)}
+.pv-hero-copy h2,.pv-section-heading h3,.pv-project-head h3{font-family:var(--site-song)}
+.pv-counter{border-top-color:var(--site-cinnabar)}.pv-project,.pv-film,.pv-day-strip,.pv-milestones button{border-radius:2px!important}
+
+.pv-hero {
+  min-height: min(520px, 62vh);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 40px;
+  border-bottom: 1px solid var(--pv-line);
+  padding-bottom: clamp(40px, 7vw, 86px);
+  position: relative;
+}
+
+.pv-hero::after {
+  content: "ROUGH CUT / EVIDENCE FIRST";
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: rgba(239, 238, 232, 0.3);
+  font: 10px/1.2 Consolas, monospace;
+  letter-spacing: 0.18em;
+  writing-mode: vertical-rl;
+}
+
+.pv-hero-copy > p,
+.pv-section-heading p,
+.pv-project-head p {
+  margin: 0;
+  color: var(--pv-metal);
+  font: 10px/1.4 Consolas, "SFMono-Regular", monospace;
+  letter-spacing: 0.16em;
+}
+
+.pv-hero-copy h2 {
+  max-width: 980px;
+  margin: 30px 0 32px;
+  font-family: "Songti SC", STSong, serif;
+  font-size: clamp(48px, 7.3vw, 116px);
+  line-height: 0.94;
+  font-weight: 400;
+  letter-spacing: -0.075em;
+}
+
+.pv-hero-copy > span {
+  color: var(--pv-muted);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.pv-counter {
+  min-width: 180px;
+  padding: 22px 0;
+  border-top: 1px solid var(--pv-line);
+  border-bottom: 1px solid var(--pv-line);
+  text-align: right;
+}
+
+.pv-counter > span,
+.pv-counter > small {
+  color: var(--pv-muted);
+  font: 9px/1 Consolas, monospace;
+  letter-spacing: 0.13em;
+}
+
+.pv-counter strong {
+  display: inline-block;
+  margin: 12px 8px 0 0;
+  font: 76px/0.85 "Arial Narrow", sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.08em;
+}
+
+.pv-film {
+  padding: clamp(44px, 7vw, 92px) 0;
+  border-bottom: 1px solid var(--pv-line);
+}
+
+.pv-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 24px;
+}
+
+.pv-section-heading h3 {
+  margin: 13px 0 0;
+  font-family: "Songti SC", STSong, serif;
+  font-size: clamp(27px, 3vw, 42px);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+}
+
+.pv-section-heading > p {
+  max-width: 360px;
+  color: var(--pv-muted);
+  letter-spacing: 0;
+  line-height: 1.8;
+  text-align: right;
+}
+
+.pv-day-strip {
+  margin: 40px 0 0;
+  padding: 18px 0;
+  display: grid;
+  grid-template-columns: repeat(30, minmax(32px, 1fr));
+  overflow-x: auto;
+  list-style: none;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 18px, rgba(239, 238, 232, 0.12) 18px 22px),
+    var(--pv-panel);
+  border-top: 1px solid var(--pv-line);
+  border-bottom: 1px solid var(--pv-line);
+  scrollbar-color: var(--pv-metal) transparent;
+}
+
+.pv-day-strip li {
+  min-width: 34px;
+  min-height: 106px;
+  padding: 13px 4px 9px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  justify-items: center;
+  gap: 8px;
+  border-right: 1px solid var(--pv-line);
+  color: #686862;
+  font: 9px/1 Consolas, monospace;
+}
+
+.pv-day-strip li i {
+  width: 2px;
+  min-height: 35px;
+  border-radius: 99px;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+.pv-day-strip li[data-state="open"] { color: #aaa9a1; }
+.pv-day-strip li[data-state="current"] { color: var(--pv-metal); background: rgba(189, 178, 159, 0.09); }
+.pv-day-strip li[data-state="complete"] { color: var(--pv-ink); background: rgba(239, 238, 232, 0.07); }
+
+.pv-act-legend {
+  margin-top: 13px;
+  display: grid;
+  grid-template-columns: repeat(30, minmax(0, 1fr));
+  gap: 3px;
+}
+
+.pv-act-legend span {
+  min-width: 0;
+  padding-top: 9px;
+  overflow: hidden;
+  border-top: 1px solid var(--pv-line);
+  color: #777770;
+  font: 8px/1 Consolas, monospace;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pv-projects {
+  padding-top: clamp(46px, 7vw, 96px);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(18px, 3vw, 38px);
+}
+
+.pv-project {
+  min-width: 0;
+  border: 1px solid var(--pv-line);
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.035), transparent 44%), var(--pv-panel);
+  box-shadow: 0 34px 80px rgba(0, 0, 0, 0.32);
+}
+
+.pv-project-head {
+  min-height: 184px;
+  padding: clamp(24px, 3vw, 38px);
+  display: flex;
+  justify-content: space-between;
+  gap: 22px;
+  border-bottom: 1px solid var(--pv-line);
+}
+
+.pv-project-head h3 {
+  margin: 20px 0 8px;
+  font-family: "Songti SC", STSong, serif;
+  font-size: clamp(31px, 3.4vw, 52px);
+  line-height: 0.95;
+  font-weight: 400;
+  letter-spacing: -0.055em;
+}
+
+.pv-project-head > div:first-child > span {
+  color: var(--pv-muted);
+  font-size: 11px;
+}
+
+.pv-project-head > div:last-child {
+  display: grid;
+  align-content: space-between;
+  justify-items: end;
+  color: var(--pv-muted);
+  font: 9px/1 Consolas, monospace;
+}
+
+.pv-project-head > div:last-child strong {
+  color: var(--pv-ink);
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.pv-milestones {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pv-milestones li + li { border-top: 1px solid var(--pv-line); }
+
+.pv-milestones button {
+  width: 100%;
+  min-height: 112px;
+  padding: 20px clamp(18px, 2.6vw, 30px);
+  border: 0;
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  color: var(--pv-ink);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: background 180ms ease, padding-left 180ms ease;
+}
+
+.pv-milestones button:not(:disabled):hover {
+  padding-left: calc(clamp(18px, 2.6vw, 30px) + 6px);
+  background: rgba(239, 238, 232, 0.05);
+}
+
+.pv-milestones button:disabled { cursor: default; }
+.pv-milestones li[data-state="locked"] button { color: #5e5e59; }
+.pv-milestones li[data-state="current"] button { background: rgba(189, 178, 159, 0.08); }
+.pv-milestones li[data-state="complete"] .pv-node-index { color: var(--pv-ink); }
+
+.pv-node-index,
+.pv-node-state,
+.pv-node-copy small {
+  font: 8px/1.3 Consolas, monospace;
+  letter-spacing: 0.09em;
+}
+
+.pv-node-index { color: var(--pv-metal); }
+.pv-node-copy { min-width: 0; }
+.pv-node-copy small { color: var(--pv-muted); }
+.pv-node-copy strong { display: block; margin-top: 9px; font-size: 13px; font-weight: 560; }
+.pv-node-copy > span { display: block; margin-top: 7px; color: var(--pv-muted); font-size: 9px; }
+.pv-node-state { color: var(--pv-metal); }
+
+.pv-shell button:focus-visible {
+  outline: 2px solid var(--pv-metal);
+  outline-offset: -4px;
+}
+
+@media (max-width: 980px) {
+  .pv-hero { min-height: 440px; }
+  .pv-projects { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 680px) {
+  .pv-shell { padding: 18px 12px 34px; }
+  .pv-hero { min-height: 460px; grid-template-columns: 1fr; align-content: end; gap: 32px; }
+  .pv-hero::after { display: none; }
+  .pv-hero-copy h2 { margin: 24px 0; font-size: clamp(43px, 15vw, 66px); }
+  .pv-counter { width: 100%; display: flex; align-items: baseline; justify-content: flex-end; gap: 8px; }
+  .pv-counter strong { margin-left: auto; font-size: 58px; }
+  .pv-section-heading { display: block; }
+  .pv-section-heading > p { margin-top: 20px; text-align: left; }
+  .pv-day-strip { margin-top: 27px; }
+  .pv-act-legend { display: none; }
+  .pv-project-head { min-height: 166px; padding: 23px 18px; }
+  .pv-project-head h3 { font-size: 35px; }
+  .pv-milestones button { min-height: 108px; grid-template-columns: 24px minmax(0, 1fr); gap: 11px; }
+  .pv-node-state { grid-column: 2; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pv-milestones button { transition: none; }
+}

@@ -1,0 +1,96 @@
+.dossier-site-nav {
+  --nav-ink: #eeeef0;
+  --nav-surface: #08090b;
+  --nav-line: #ffffff24;
+  position: relative;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: min(1500px, 92%);
+  height: 104px;
+  margin: auto;
+  color: var(--nav-ink);
+  font-family: var(--folio-sans, Arial), sans-serif;
+}
+.dossier-site-nav a { text-decoration: none; color: inherit; }
+.dossier-site-brand { display: flex; flex-direction: column; font-size: 23px; font-weight: 800; letter-spacing: .13em; line-height: 1.1; }
+.dossier-site-brand span { font-size: 11px; font-weight: 400; letter-spacing: .09em; margin-top: 7px; }
+.dossier-site-nav__dock {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+  padding: 8px;
+  border: 1px solid var(--nav-line);
+  border-radius: 46px;
+  background: var(--nav-surface);
+  color: #f6f6f6;
+  box-shadow: 0 3px 8px #0000000a, inset 0 1px 0 #ffffff0a;
+}
+.dossier-site-nav nav { display: flex; gap: 4px; align-items: center; font-size: 14px; padding: 3px; border-radius: 28px; background: #ffffff12; }
+.dossier-site-nav .dossier-site-nav__dock nav a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: 24px;
+  color: #d9d9df;
+  transition: background-color .18s ease, color .18s ease;
+}
+.dossier-site-nav .dossier-site-nav__dock nav a:hover { background: #ffffff26; color: #fff; }
+.dossier-site-nav .dossier-site-nav__dock nav a[aria-current=page] { background: #f5f5f5; color: #161618; }
+.dossier-site-nav nav a[aria-current=page]::after { content: none; }
+.dossier-site-nav .archive-music { flex: none; border-right: 1px solid #ffffff26; padding-right: 12px; }
+.dossier-site-nav a:focus-visible { outline: 2px solid #a9bce3; outline-offset: 3px; }
+.dossier-site-brand:hover { opacity: .75; }
+.dossier-site-nav[data-compact=true] .dossier-site-nav__dock {
+  position: fixed;
+  top: max(16px, env(safe-area-inset-top));
+  right: max(4vw, calc((100vw - 1500px) / 2), env(safe-area-inset-right));
+  z-index: 100;
+  gap: 8px;
+  padding: 4px;
+  border-color: #ffffff36;
+  background: #08090bf2;
+  box-shadow: 0 8px 32px #0003, inset 0 1px 0 #ffffff12;
+  backdrop-filter: blur(18px);
+  animation: archive-nav-arrive .24s cubic-bezier(.2,.7,.25,1) both;
+}
+.dossier-site-nav[data-compact=true] .archive-music { padding-right: 8px; }
+.dossier-site-nav[data-compact=true] nav a { padding-inline: 14px; }
+.badge-status { position: absolute; inset: 0; display: grid; place-content: center; padding: 24px; text-align: center; font-size: 14px; color: #83848a; }
+.badge-status img { max-height: 420px; max-width: 85%; margin: auto; object-fit: contain; }
+@keyframes archive-nav-arrive { from { opacity: 0; transform: translateY(-8px) scale(.98); } to { opacity: 1; transform: none; } }
+@media (max-width: 1100px) {
+  .dossier-site-nav { gap: 12px; }
+  .dossier-site-nav .dossier-site-nav__dock nav a { padding-inline: 14px; }
+  .dossier-site-nav__dock { gap: 8px; }
+}
+@media (max-width: 900px) {
+  .dossier-site-nav { display: grid; grid-template-columns: 1fr auto; align-content: center; gap: 12px; height: 158px; }
+  .dossier-site-brand { font-size: 19px; }
+  .dossier-site-brand span { font-size: 10px; }
+  .dossier-site-resume { grid-column: 2; grid-row: 1; justify-self: end; }
+  .dossier-site-nav__dock { grid-column: 1 / -1; grid-row: 2; justify-self: end; }
+  .dossier-site-nav[data-compact=true] .dossier-site-nav__dock { grid-column: auto; grid-row: auto; }
+}
+@media (max-width: 520px) {
+  .dossier-site-nav { width: 92%; }
+  .dossier-site-nav__dock { gap: 4px; padding: 4px; max-width: 100%; }
+  .dossier-site-nav nav { font-size: 12px; gap: 0; padding: 2px; }
+  .dossier-site-nav .dossier-site-nav__dock nav a { padding-inline: 11px; }
+  .dossier-site-nav .archive-music { padding-right: 4px; min-width: 0; flex: 1 1 auto; }
+  .dossier-site-nav[data-compact=true] .dossier-site-nav__dock { max-width: 92vw; gap: 4px; }
+  .dossier-site-nav[data-compact=true] .archive-music { padding-right: 4px; }
+}
+@media (max-width: 360px) {
+  .dossier-site-nav .dossier-site-nav__dock nav a { padding-inline: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dossier-site-nav[data-compact=true] .dossier-site-nav__dock { animation: none; }
+  .dossier-site-nav nav a { transition: none; }
+}
+@media print { .dossier-site-nav { display: none; } }

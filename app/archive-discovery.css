@@ -1,0 +1,220 @@
+/* Scene direction: a discovered object, one pool of light, then the paper becomes
+   the screen. All physical surfaces use photographic assets, not painted shapes. */
+.folio--envelope {
+  --archive-night: #11100e;
+  --archive-paper: #eee3ce;
+  --archive-ink: #514337;
+  --archive-gold: #ceae79;
+  background: var(--archive-night);
+}
+.folio--envelope::before { display: none; }
+.sealed-entry--discovered {
+  --paper-sx: .56;
+  --paper-sy: .64;
+  --paper-y: 18px;
+  --paper-lift: -80px;
+  --light-x: 0px;
+  min-height: 0;
+  height: 100svh;
+  background: var(--archive-night);
+}
+.sealed-entry--discovered .sealed-entry__desk {
+  filter: none;
+  object-position: center 52%;
+  transform: translateX(var(--light-x)) scale(1.035);
+  transition: transform 1.2s ease;
+  animation: archive-room-arrive 1.2s ease both;
+}
+.sealed-entry--discovered .sealed-entry__light {
+  background: radial-gradient(ellipse 53% 67% at 50% 47%, transparent 27%, #08070538 75%, #080705b8);
+}
+.sealed-entry--discovered .sealed-entry__nav {
+  top: 24px;
+  color: #e9dbbf9e;
+  justify-content: flex-end;
+}
+.sealed-entry--discovered .sealed-entry__nav > span { display: none; }
+.sealed-entry--discovered .sealed-entry__nav a { font-size: 14px; }
+.sealed-entry--discovered .sealed-file {
+  width: min(46vw, 70svh);
+  container-type: inline-size;
+  filter: drop-shadow(14px 25px 18px #030200b3);
+  outline-color: var(--archive-gold);
+}
+.sealed-entry--discovered .sealed-file__frame { filter: saturate(.83) brightness(.9); }
+.sealed-file__light {
+  position: absolute;
+  inset: 10.1% 7.5% 8.1%;
+  pointer-events: none;
+  background: linear-gradient(140deg, #fff0cb0f, transparent 42%, #1d0f033d);
+  mix-blend-mode: multiply;
+}
+.sealed-entry--discovered .sealed-file__label {
+  color: #493723;
+  top: 48%;
+}
+.sealed-entry--discovered .sealed-file__label strong { letter-spacing: 12px; }
+.sealed-entry--discovered .sealed-entry__footer {
+  bottom: 25px;
+  color: #ece0cbb3;
+}
+.sealed-entry--discovered .sealed-entry__footer p,
+.sealed-entry--discovered .sealed-entry__footer button { font-size: 14px !important; }
+
+/* The envelope stays on the desk as the document leaves it. */
+.sealed-entry--discovered.is-opening .sealed-file {
+  animation: discovered-folder var(--archive-duration) ease both;
+}
+.sealed-entry--discovered.is-opening .sealed-file__frame--0 {
+  animation: discovered-tied var(--archive-duration) linear both;
+}
+.sealed-entry--discovered.is-opening .sealed-file__frame--1 {
+  animation: discovered-unthread var(--archive-duration) linear both;
+}
+.sealed-entry--discovered.is-opening .sealed-file__frame--2 {
+  animation: discovered-flap var(--archive-duration) linear both;
+}
+.sealed-entry--discovered.is-opening :is(.sealed-file__label, .sealed-file__ticket) {
+  animation: discovered-label var(--archive-duration) linear both;
+}
+.sealed-entry--discovered.is-opening .sealed-entry__nav,
+.sealed-entry--discovered.is-opening .sealed-entry__footer {
+  animation: discovered-chrome var(--archive-duration) ease both;
+}
+.sealed-entry--discovered.is-opening .sealed-entry__desk {
+  animation: discovered-room-recede var(--archive-duration) ease both;
+}
+.archive-paper-travel {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  visibility: hidden;
+  perspective: 1600px;
+}
+.archive-paper-preload { opacity: 0; pointer-events: none; }
+.is-opening .archive-paper-travel { visibility: visible; }
+.archive-sheet {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100vw;
+  height: 100dvh;
+  opacity: 0;
+  transform-origin: center;
+  transform: translate(-50%, -50%) translateY(var(--paper-y)) rotateZ(-5deg) scale(var(--paper-sx), var(--paper-sy));
+}
+.archive-sheet__reveal {
+  position: absolute;
+  inset: 0;
+  perspective: 1400px;
+  clip-path: inset(0 0 90% 0);
+}
+.archive-sheet__leaf {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-image: url('/images/archive-paper-fiber-v2.png');
+  background-color: #eee3ce;
+  background-repeat: no-repeat;
+  backface-visibility: hidden;
+  box-shadow: 0 18px 35px #100b0466;
+}
+.archive-sheet__leaf--left {
+  left: 0;
+  width: 30.05%;
+  background-size: 333.333% 100%;
+  background-position: left center;
+  transform-origin: right center;
+  transform: rotateY(178deg);
+}
+.archive-sheet__leaf--middle {
+  left: 30%;
+  width: 40%;
+  z-index: 1;
+  background-size: 250% 100%;
+  background-position: center;
+}
+.archive-sheet__leaf--right {
+  right: 0;
+  width: 30.05%;
+  background-size: 333.333% 100%;
+  background-position: right center;
+  transform-origin: left center;
+  transform: rotateY(-178deg);
+}
+.archive-sheet__ink {
+  position: absolute;
+  inset: 20% 9% 18%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #65513a;
+  text-align: center;
+  border-block: 1px solid #8b6f4352;
+}
+.archive-sheet__ink > span { font: 20px/1.6 var(--folio-display); letter-spacing: .6em; padding-left: .6em; }
+.archive-sheet__ink > strong { font: clamp(34px, 6vw, 96px)/1.6 var(--folio-display); font-weight: 400; letter-spacing: .15em; padding-left: .15em; margin: 20px 0; }
+.archive-sheet__ink > i { width: 35%; height: 1px; background: #80634366; }
+.archive-sheet__ink > small { font-size: 16px; line-height: 1.8; letter-spacing: .2em; margin-top: 24px; }
+.is-opening .archive-sheet { animation: archive-paper-takeover var(--archive-duration) cubic-bezier(.25,.55,.2,1) both; }
+.is-opening .archive-sheet__reveal { animation: archive-paper-extract var(--archive-duration) ease both; }
+.is-opening .archive-sheet__leaf--left { animation: archive-unfold-left var(--archive-duration) cubic-bezier(.22,.65,.28,1) both; }
+.is-opening .archive-sheet__leaf--right { animation: archive-unfold-right var(--archive-duration) cubic-bezier(.22,.65,.28,1) both; }
+.is-opening .archive-sheet__ink { animation: archive-ink-near var(--archive-duration) ease both; }
+.is-opening .archive-sheet__leaf { animation-duration: var(--archive-duration); }
+
+/* The same paper remains on top across the React screen switch, then reveals
+   the real homepage underneath. This avoids a blank frame or a white flash. */
+.archive-paper-arrival {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  pointer-events: none;
+  background: #eee3ce url('/images/archive-paper-fiber-v2.png') center / 100% 100% no-repeat;
+  transform: scale(1.02);
+  animation: archive-arrival-reveal .6s ease both;
+}
+@keyframes archive-room-arrive { from { opacity: 0; } to { opacity: 1; } }
+@keyframes discovered-tied { 0%,10% { opacity: 1; } 24%,100% { opacity: 0; } }
+@keyframes discovered-unthread { 0%,10% { opacity: 0; } 24%,28% { opacity: 1; } 40%,100% { opacity: 0; } }
+@keyframes discovered-flap { 0%,26% { opacity: 0; } 40%,100% { opacity: 1; } }
+@keyframes discovered-folder {
+  0%,24% { transform: rotateZ(-5deg); }
+  44% { transform: rotateZ(-4deg) translateY(5px); }
+  100% { transform: rotateZ(-4deg) translateY(18px) scale(.97); }
+}
+@keyframes discovered-label { 0%,36% { opacity: 1; } 58%,100% { opacity: 0; } }
+@keyframes discovered-chrome { 0% { opacity: 1; } 26%,100% { opacity: 0; } }
+@keyframes discovered-room-recede { 0%,32% { filter: brightness(1); } 78%,100% { filter: brightness(.5); } }
+@keyframes archive-paper-takeover {
+  0%,33% { opacity: 0; transform: translate(-50%,-50%) translateY(var(--paper-y)) rotateZ(-5deg) scale(var(--paper-sx),var(--paper-sy)); }
+  36% { opacity: 1; transform: translate(-50%,-50%) translateY(var(--paper-y)) rotateZ(-5deg) scale(var(--paper-sx),var(--paper-sy)); }
+  55% { opacity: 1; transform: translate(-50%,-50%) translateY(var(--paper-lift)) rotateZ(-3deg) scale(var(--paper-sx),var(--paper-sy)); }
+  65% { opacity: 1; transform: translate(-50%,-50%) translateY(var(--paper-lift)) rotateZ(-1deg) scale(var(--paper-sx),var(--paper-sy)); }
+  90%,100% { opacity: 1; transform: translate(-50%,-50%) rotateZ(0deg) scale(1.02); }
+}
+@keyframes archive-paper-extract { 0%,34% { clip-path: inset(0 0 90% 0); } 55%,100% { clip-path: inset(0); } }
+@keyframes archive-unfold-left { 0%,54% { transform: rotateY(178deg); } 77%,100% { transform: rotateY(0deg); } }
+@keyframes archive-unfold-right { 0%,57% { transform: rotateY(-178deg); } 80%,100% { transform: rotateY(0deg); } }
+@keyframes archive-ink-near { 0%,59% { opacity: .75; } 81%,100% { opacity: 0; } }
+@keyframes archive-arrival-reveal { 0%,12% { opacity: 1; } 100% { opacity: 0; } }
+@media (max-width: 760px) {
+  .folio .sealed-entry--discovered .sealed-file { width: min(98vw, 68svh); }
+  .sealed-entry--discovered .sealed-entry__nav { top: 18px; }
+  .sealed-entry--discovered .sealed-entry__footer { bottom: 18px; }
+  .archive-sheet__ink { inset: 19% 6%; }
+  .archive-sheet__ink > strong { font-size: 26px; letter-spacing: 0; padding-left: 0; }
+  .archive-sheet__ink > span { font-size: 14px; letter-spacing: .25em; padding-left: .25em; }
+  .archive-sheet__ink > small { font-size: 12px; letter-spacing: 0; max-width: 6em; }
+}
+@media (max-height: 600px) {
+  .sealed-entry--discovered .sealed-entry__nav { top: 10px; }
+  .sealed-entry--discovered .sealed-entry__footer { bottom: 10px; }
+  .folio .sealed-entry--discovered .sealed-file { width: min(48vw,70svh); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sealed-entry--discovered *, .archive-paper-arrival { animation: none !important; transition: none !important; }
+  .archive-paper-travel, .archive-paper-arrival { display: none; }
+}

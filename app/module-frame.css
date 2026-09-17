@@ -1,0 +1,10 @@
+.module-frame{min-height:100svh;overflow-x:clip;color:var(--site-ink);background:var(--site-paper);font-family:var(--site-sans)}
+.module-frame__header{height:68px;position:sticky;z-index:100;top:0;padding:0 clamp(16px,3vw,44px);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;border-bottom:1px solid var(--site-hairline);background:rgba(240,238,232,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.module-frame__header>button{justify-self:start;display:flex;align-items:center;gap:13px;border:0;color:var(--site-ink);background:transparent;font-size:19px;font-weight:650;letter-spacing:-.06em;cursor:pointer}
+.module-frame__header>button span{color:#8b8780;font-size:13px}
+.module-frame__header>div{display:flex;align-items:baseline;gap:15px;text-align:center}
+.module-frame__header>div span{color:var(--site-silver);font:8px/1 var(--site-mono);letter-spacing:.12em}
+.module-frame__header>div strong{font-family:var(--site-song);font-size:15px;font-weight:400}
+.module-frame__header>i{width:7px;height:7px;justify-self:end;rotate:45deg;background:var(--site-cinnabar);box-shadow:0 0 0 4px rgba(163,45,41,.08)}
+.module-frame button:focus-visible{outline:1px solid currentColor;outline-offset:4px}
+@media(max-width:620px){.module-frame__header{height:62px;padding:0 14px}.module-frame__header>div span{display:none}.module-frame__header>div strong{font-size:13px}.module-frame__header>button{font-size:17px}}

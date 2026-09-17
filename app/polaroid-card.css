@@ -1,0 +1,60 @@
+.polaroid-stage {
+  position: relative;
+  z-index: 1;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 80px 32px;
+  background: radial-gradient(ellipse at 50% 48%, #27272a 0, #101113 68%);
+}
+.polaroid-hit {
+  --rx: 0deg;
+  --ry: 0deg;
+  width: min(420px, 72vw, 59svh);
+  aspect-ratio: 838 / 1024;
+  perspective: 800px;
+  outline: none;
+}
+.polaroid-hit:focus-visible { outline: 1px solid #bfc0c3; outline-offset: 18px; border-radius: 5px; }
+.polaroid-tilt {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx)) rotateY(var(--ry)) scale(1);
+  transition: transform 600ms cubic-bezier(.22, 1, .36, 1);
+}
+.polaroid-image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+  user-select: none;
+  backface-visibility: hidden;
+  border-radius: 3px;
+  transition: opacity 350ms ease;
+}
+.polaroid-image--default { opacity: 1; box-shadow: 0 30px 70px #0007; }
+.polaroid-image--hover { opacity: 0; transform: translateZ(1px); }
+.polaroid-pop{position:absolute;left:-28%;top:-30%;width:120%;height:120%;pointer-events:none;opacity:0;transform:translateY(15%) translateZ(32px) scale(.72);transform-origin:50% 75%;transition:opacity 280ms ease,transform 620ms cubic-bezier(.16,1.35,.3,1);filter:drop-shadow(6px 16px 9px #17130e50);backface-visibility:hidden}
+.polaroid-pop img{display:block;width:100%;height:100%;object-fit:fill;mask-image:url('/assets/polaroid/character-mask-v2.png');mask-mode:luminance;mask-size:100% 100%;mask-repeat:no-repeat;user-select:none}
+/* Match the lower-right torn opening while leaving the reaching hand in front. */
+.polaroid-pop img{clip-path:polygon(0 0,100% 0,100% 50%,88% 58%,81.7% 66.3%,79.5% 71.4%,78.8% 75.7%,74.4% 80.1%,69.4% 85.2%,64.3% 91%,64% 100%,0 100%)}
+.polaroid-mask-preload{position:absolute;width:1px;height:1px;visibility:hidden;pointer-events:none}
+@media (hover: hover) and (pointer: fine) {
+  .polaroid-hit[data-active="true"] .polaroid-tilt { transform: rotateX(var(--rx)) rotateY(var(--ry)); }
+  .polaroid-hit[data-active="true"] .polaroid-pop{opacity:1;transform:translateY(0) translateZ(70px) scale(1.05)}
+  .polaroid-hit[data-active="true"] .polaroid-image--hover { opacity: 1; }
+  .polaroid-hit[data-active="true"] .polaroid-image--default { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .polaroid-hit .polaroid-tilt, .polaroid-hit[data-active="true"] .polaroid-tilt,
+  .polaroid-hit .polaroid-image--hover { transform: none; }
+  .polaroid-tilt { transition: none; }
+  .polaroid-hit .polaroid-pop,.polaroid-hit[data-active="true"] .polaroid-pop{transform:none;transition:opacity 200ms ease}
+  .polaroid-hit .polaroid-pop{left:-38.88%;top:-42.61%;width:138.08%;height:138.08%}
+}

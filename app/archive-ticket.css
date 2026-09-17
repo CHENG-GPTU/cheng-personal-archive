@@ -1,0 +1,32 @@
+/* A paper label attached to the existing folder, not a replacement background. */
+.sealed-file__ticket {
+  position:absolute;left:22%;right:22%;top:47%;bottom:13%;
+  display:flex;flex-direction:column;gap:1.6cqw;
+  padding:2.5cqw 2.8cqw 2cqw;
+  color:#24231f;text-align:left;pointer-events:none;
+  background:#e5dfd2 url('/images/archive-paper-fiber-v2.png') center/cover;
+  box-shadow:1px 3px 4px #39281855,inset 0 0 12px #80725a22;
+  transform:none;font-family:Arial,'Microsoft YaHei',sans-serif;
+  line-height:1.3;clip-path:polygon(0 0,99.6% .7%,100% 98.8%,1% 100%);
+}
+.sealed-file__ticket::after {
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(168deg,transparent 0 29%,#514b3642 29.3%,#fff9ea9c 29.9%,transparent 31%),linear-gradient(8deg,transparent 60%,#514b3630 60.4%,#fff9ea90 61%,transparent 62%),linear-gradient(92deg,transparent 48%,#55462c20 49.4%,#fffbed80 50%,transparent 51.4%);
+}
+.sealed-file__ticket::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 0 100%,#77604140,transparent 32%),radial-gradient(ellipse at 100% 0,#8b785438,transparent 26%);box-shadow:inset 0 0 8px #6248263d;mix-blend-mode:multiply}
+.archive-ticket__header{display:flex;align-items:flex-start;gap:1.8cqw;position:relative;padding-right:4cqw}
+.archive-ticket__name{writing-mode:vertical-rl;font-size:4.3cqw;line-height:1.1;letter-spacing:.12em;font-weight:900}
+.archive-ticket__identity{display:flex;flex-direction:column;gap:.6cqw;padding-top:.4cqw}
+.archive-ticket__identity b{font-size:1.85cqw;font-weight:900;white-space:nowrap}
+.archive-ticket__identity>span{font-size:1.9cqw;font-weight:700}
+.archive-ticket__identity small{font-size:1.45cqw;margin-top:1.5cqw;letter-spacing:.04em}
+.archive-ticket__stamp{position:absolute;right:-1cqw;top:1cqw;writing-mode:vertical-rl;border:2px solid #97463c;color:#97463c;border-radius:2px;padding:.8cqw .35cqw;font-size:2.1cqw;line-height:1;font-weight:900;transform:rotate(-4deg);opacity:.85}
+.archive-ticket__title{display:flex;flex-direction:column;gap:.5cqw;border-block:1px solid #3c3931;padding:1.5cqw 0}
+.archive-ticket__title small{font-size:1.3cqw;letter-spacing:.1em}
+.archive-ticket__title b{font-size:3.3cqw;font-weight:500;letter-spacing:.06em}
+.archive-ticket__contents{font-size:1.75cqw;line-height:1.7;padding:.5cqw 0 1cqw;border-bottom:1.3cqw solid #262520}
+.archive-ticket__barcode{display:block;height:5cqw;width:80%;margin:.7cqw auto 0;background:repeating-linear-gradient(90deg,#24231f 0 1px,transparent 1px 3px,#24231f 3px 5px,transparent 5px 7px,#24231f 7px 8px,transparent 8px 12px,#24231f 12px 15px,transparent 15px 17px);transform:skewY(-1deg)}
+.archive-ticket__serial{font-size:1.1cqw;letter-spacing:.06em;text-align:center;margin-top:-.9cqw}
+.archive-ticket__direction{display:flex;align-items:center;gap:2cqw;margin-top:auto;padding-top:1.4cqw;border-top:1px solid #3c3931}
+.archive-ticket__direction small{font-size:1.4cqw;font-weight:700;border-right:1px solid #3c3931;padding-right:2cqw}
+.archive-ticket__direction b{font-size:2.7cqw;font-weight:500;white-space:nowrap}

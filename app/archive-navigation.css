@@ -1,0 +1,8 @@
+.archive-navigation{display:contents}
+.dossier-site-about{position:relative}
+html[data-about-drop]::view-transition-old(root){animation:none}
+html[data-about-drop]::view-transition-new(root){animation:about-curtain-drop 950ms cubic-bezier(.2,.85,.28,1) both;mix-blend-mode:normal}
+html[data-about-drop]::view-transition-group(root){animation-duration:950ms}
+@keyframes about-curtain-drop{0%{transform:translateY(-102%)}78%{transform:translateY(1.4%)}100%{transform:translateY(0)}}
+@supports not (view-transition-name:root){.archive-navigation[data-phase=falling] .about-archive{animation:about-curtain-drop 950ms cubic-bezier(.2,.85,.28,1) both}}
+@media(prefers-reduced-motion:reduce){html[data-about-drop]::view-transition-new(root){animation:none}}

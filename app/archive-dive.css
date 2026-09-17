@@ -1,0 +1,99 @@
+/* A physical paper opening, then one continuous push into the real Home.
+   Only the final passage cuts through the foreground; no black overlay/tunnel. */
+@property --archive-hole-x { syntax:'<length-percentage>'; inherits:false; initial-value:0px; }
+@property --archive-hole-y { syntax:'<length-percentage>'; inherits:false; initial-value:0px; }
+
+.archive-content { display:contents; }
+.archive-entry-restored { position:fixed; inset:0; z-index:1000; overflow:hidden; }
+.archive-entry-restored:has(.is-opening) { background:transparent; }
+.sealed-entry--discovered .sealed-file { transform-origin:50% 27.4%; }
+.sealed-file__front,
+.sealed-file__mouth { position:absolute; pointer-events:none; opacity:0; }
+.sealed-file__front { inset:0; clip-path:polygon(6.7% 26.9%,12% 27.4%,88% 27.4%,93.3% 26.9%,93.3% 93.6%,6.7% 93.6%); filter:saturate(.83) brightness(.9); }
+.sealed-file__front img { object-fit:contain; }
+.sealed-file__mouth {
+  left:6.7%; right:6.7%; top:20%; height:14.8%; overflow:hidden;
+  transform-origin:50% 0; transform:scaleY(.43);
+  border-radius:48% 48% 46% 46% / 7% 7% 22% 22%;
+  background:linear-gradient(180deg,#463420 0%,#191816 13%,#101113 27%,#101113 70%,#201b16 88%,#6b4f30 100%);
+  box-shadow:inset 0 3px 4px #a88a5524,inset 0 -4px 7px #100b07c7;
+}
+.sealed-file__inner-back { position:absolute; inset:0; border-radius:inherit; box-shadow:inset 12px 0 14px #a47a422b,inset -12px 0 14px #a47a422b; background:linear-gradient(180deg,#9a713f44,transparent 15%,transparent 85%,#a77d4633); }
+.sealed-file__inner-rim { position:absolute; inset:0; border-radius:inherit; border-top:1px solid #d2b07966; border-bottom:1px solid #c3a17070; box-shadow:inset 0 1px 0 #060503,inset 0 -1px 0 #080604; }
+.sealed-file__papers { position:absolute; inset:0; }
+.sealed-file__papers i { position:absolute; left:6%; right:6%; top:32%; height:76%; transform-origin:50% 100%; background:#d5c09a url('/images/archive-paper-fiber-v2.png') center/cover; border-top:1px solid #eee0c0; box-shadow:0 -3px 9px #0008; }
+.sealed-file__papers i:nth-child(1) { transform:translateY(-12%) rotate(-1.6deg); filter:brightness(.7); }
+.sealed-file__papers i:nth-child(2) { transform:translateY(2%) rotate(1deg); filter:brightness(.86); }
+.sealed-file__papers i:nth-child(3) { transform:translateY(15%) rotate(-.4deg); }
+
+.sealed-entry--discovered.is-opening {
+  mask-image:radial-gradient(ellipse var(--archive-hole-x) var(--archive-hole-y) at 50% 50%,transparent 68%,#000 100%);
+  animation:archive-pass-through var(--archive-duration) linear both;
+}
+.sealed-entry--discovered.is-opening .sealed-file {
+  animation:archive-camera-v2 var(--archive-duration) linear both;
+  will-change:transform;
+}
+.sealed-entry--discovered.is-opening .sealed-file__frame--0 { animation:archive-tied-v2 var(--archive-duration) linear both; }
+.sealed-entry--discovered.is-opening .sealed-file__frame--1 { animation:archive-loose-v2 var(--archive-duration) linear both; }
+.sealed-entry--discovered.is-opening .sealed-file__frame--2 {
+  clip-path:polygon(14% 7.3%,86% 7.3%,87.7% 7.7%,89% 8.8%,93.3% 19.8%,93.3% 21%,6.7% 21%,6.7% 19.8%,11% 8.8%,12.3% 7.7%);
+  transform-origin:50% 20%;
+  animation:archive-flap-v2 var(--archive-duration) linear both;
+}
+.sealed-entry--discovered.is-opening .sealed-file__front { animation:archive-front-v2 var(--archive-duration) linear both; }
+.sealed-entry--discovered.is-opening .sealed-file__mouth { animation:archive-mouth-v2 var(--archive-duration) linear both; }
+.sealed-entry--discovered.is-opening .sealed-file__papers { animation:archive-papers-v2 var(--archive-duration) cubic-bezier(.3,0,.6,1) both; }
+.sealed-entry--discovered.is-opening .sealed-file__ticket { animation:archive-ticket-v2 var(--archive-duration) linear both; }
+.sealed-entry--discovered.is-opening .sealed-file__light { opacity:0; }
+.sealed-entry--discovered.is-opening .sealed-entry__desk { animation:archive-desk-v2 var(--archive-duration) ease-in both; }
+.archive-paper-arrival { background:#101113; transform:none; animation:archive-arrival-reveal .25s ease-out both; }
+
+@keyframes archive-tied-v2 { 0%,7%{opacity:1} 20%,100%{opacity:0} }
+@keyframes archive-loose-v2 { 0%,7%{opacity:0} 20%,25%{opacity:1} 36%,100%{opacity:0} }
+@keyframes archive-flap-v2 {
+  0%,24%{opacity:0;transform:perspective(800px) rotateX(-62deg)}
+  36%{opacity:1;transform:perspective(800px) rotateX(-28deg)}
+  51%,100%{opacity:1;transform:perspective(800px) rotateX(0deg)}
+}
+@keyframes archive-front-v2 {
+  0%,25%{opacity:0;transform:translateY(0)}
+  36%{opacity:1;transform:translateY(1%)}
+  53%,100%{opacity:1;transform:translateY(6.7%)}
+}
+@keyframes archive-mouth-v2 {
+  0%,26%{opacity:0;transform:scaleY(.43)}
+  36%{opacity:1;transform:scaleY(.5)}
+  53%,100%{opacity:1;transform:scaleY(1)}
+}
+@keyframes archive-papers-v2 {
+  0%,39%{transform:translateY(0) rotateX(0)}
+  54%{transform:translateY(18%) rotateX(-9deg)}
+  68%,100%{transform:translateY(105%) rotateX(-22deg)}
+}
+@keyframes archive-ticket-v2 { 0%,25%{transform:translateY(0);opacity:1} 36%{transform:translateY(2.5%);opacity:1} 53%,100%{transform:translateY(16.75%);opacity:1} }
+@keyframes archive-camera-v2 {
+  0%{transform:rotateZ(-4deg) scale(1)}
+  25%{transform:translateY(1%) rotateZ(-3deg) scale(1.015)}
+  48%{transform:translateY(8%) rotateZ(-1deg) scale(1.12);animation-timing-function:cubic-bezier(.35,0,.55,1)}
+  61%{transform:translateY(23.6%) rotateZ(0deg) scale(1.5);animation-timing-function:cubic-bezier(.52,0,.84,.5)}
+  84%{transform:translateY(23.6%) rotateZ(0deg) scale(6);animation-timing-function:cubic-bezier(.4,0,.8,1)}
+  100%{transform:translateY(23.6%) rotateZ(0deg) scale(11)}
+}
+@keyframes archive-desk-v2 {
+  0%,28%{transform:scale(1.035);filter:brightness(1)}
+  61%{transform:scale(1.09);filter:brightness(.84)}
+  100%{transform:scale(1.55);filter:brightness(.46)}
+}
+@keyframes archive-pass-through {
+  0%,69%{--archive-hole-x:0px;--archive-hole-y:0px;opacity:1}
+  75%{--archive-hole-x:12vw;--archive-hole-y:5vh;opacity:1}
+  84%{--archive-hole-x:54vw;--archive-hole-y:28vh;opacity:1}
+  93%{--archive-hole-x:95vw;--archive-hole-y:75vh;opacity:1}
+  100%{--archive-hole-x:150vmax;--archive-hole-y:150vmax;opacity:0}
+}
+@media(prefers-reduced-motion:reduce) {
+  .sealed-file__mouth,.sealed-file__front{display:none}
+  .sealed-entry--discovered.is-opening{animation:none;mask-image:none}
+  .sealed-entry--discovered.is-opening .sealed-file{animation:none;will-change:auto}
+}
