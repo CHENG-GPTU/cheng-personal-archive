@@ -44,6 +44,7 @@ before(async () => {
   const channel = process.env.ARCHIVE_TEST_BROWSER || (process.platform === 'win32' ? 'chrome' : 'chromium');
   browser = await chromium.launch({
     ...(channel === 'chromium' ? {} : { channel }),
+    ...(process.env.ARCHIVE_TEST_PROXY ? { proxy: { server: process.env.ARCHIVE_TEST_PROXY } } : {}),
     headless: true,
     // Preserve the browser's gesture requirement; never grant autoplay to make a test pass.
     args: ['--autoplay-policy=document-user-activation-required',
